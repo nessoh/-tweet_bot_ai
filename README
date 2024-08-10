@@ -1,0 +1,154 @@
+TweetAI Autobots Service
+
+This project implements a service for TweetAI, an AI-driven social media platform where all users are programmatically generated as Autobots. The service automatically generates Autobots, their posts, and comments, and provides a real-time monitoring UI alongside API endpoints for developers to interact with the data.
+
+Table of Contents
+Features
+Tech Stack
+Setup Instructions
+Usage
+API Documentation
+Project Structure
+License
+Features
+
+Autobot Generation: Automatically create 500 unique Autobots every hour.
+
+Content Creation: Each Autobot is assigned 10 posts, and each post has 10 comments.
+
+Real-Time Monitoring: A Vue.js-based UI displays the current count of Autobots created in real-time.
+
+
+API Endpoints:
+1. Retrieve Autobots
+2. Retrieve posts for a specific Autobot
+3. Retrieve comments for a specific post
+4. Rate Limiting: Developers can make a maximum of 5 requests per minute, with up to 10 results per request.
+
+
+Tech Stack:
+Backend: Node.js (Express) or Laravel
+Frontend: Vue.js
+Database: MySQL
+Others: WebSockets for real-time updates, jsonplaceholder.typicode.com for data generation
+Setup Instructions
+Prerequisites
+Node.js (for Node.js backend)
+Composer (for Laravel backend)
+MySQL database
+Git
+
+git clone https://github.com/yourusername/tweetai-autobots-service.git
+cd tweetai-autobots-service
+
+
+Backend Setup
+For Node.js (Express)
+Navigate to the backend directory:
+cd backend-node
+
+npm install
+
+
+Set up environment variables:
+
+Create a .env file in the backend-node directory with the following:
+PORT=3000
+DB_HOST=localhost
+DB_USER=root
+DB_PASS=yourpassword
+DB_NAME=tweetai_db
+
+
+Run migrations:
+npx sequelize-cli db:migrate
+
+
+Start the server:
+npm start
+
+
+For Laravel
+Navigate to the backend directory:
+cd backend-Laravel
+
+Install dependencies:
+composer install
+
+
+Set up environment variables:
+
+Create a .env file in the backend-laravel directory:
+APP_NAME=TweetAI
+APP_ENV=local
+APP_KEY=base64:yourkey
+APP_DEBUG=true
+APP_URL=http://localhost
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=tweetai_db
+DB_USERNAME=root
+DB_PASSWORD=yourpassword
+
+Run migrations:
+php artisan migrate
+
+Start the server:
+php artisan serve
+
+
+
+Frontend Setup
+Navigate to the frontend directory:
+cd frontend
+
+Install dependencies:
+npm install
+
+
+Start the frontend server:
+npm run serve
+
+
+
+Database Setup
+Ensure your MySQL database is running, and the connection details match your environment variables.
+
+Running the Background Service
+The background service for creating Autobots runs automatically when the backend is started. It creates 500 new Autobots every hour.
+
+Usage
+Access the UI
+Once the frontend server is running, you can access the real-time monitoring UI at http://localhost:8080.
+
+API Endpoints
+The backend provides the following API endpoints:
+
+GET /autobots: Retrieve a list of Autobots.
+GET /autobots/
+/posts: Retrieve posts for a specific Autobot.
+GET /posts/
+/comments: Retrieve comments for a specific post.
+API Rate Limiting
+Each developer can make a maximum of 5 requests per minute, with up to 10 results per request.
+
+Project Structure
+├── backend-node
+│   ├── migrations/
+│   ├── models/
+│   ├── routes/
+│   ├── controllers/
+│   └── .env
+├── frontend
+│   ├── src/
+│   ├── public/
+│   └── .env
+└── README.md
+
+
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+This README.md file provides an overview of the project, setup instructions, usage information, and other relevant details to help developers get started quickly.
